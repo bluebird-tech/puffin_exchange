@@ -1,0 +1,15 @@
+
+mysql:
+  image: gewo/mysql
+
+web:
+  image: gewo/ruby:2.2.1
+  volumes:
+    - ./:/mnt/
+    - $SSH_AUTH_SOCK:/tmp/agent.sock
+  environment:
+    - SSH_AUTH_SOCK=/tmp/agent.sock
+  ports:
+    - "3000:3000"
+  links:
+    - mysql
