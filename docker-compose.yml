@@ -13,3 +13,5 @@ web:
     - "3000:3000"
   links:
     - mysql
+  command: ./run
+  working_dir: /mnt
