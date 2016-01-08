@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   devise_for :users
   resources :download
 
@@ -8,6 +10,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
+  get '/contact', to: 'landing_pages#contact'
+  get '/help', to: 'landing_pages#help'
+  get '/about', to: 'landing_pages#about'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
