@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     put 'users', to: 'devise/registrations#update', as: 'user_registration'
   end
   resources :download
+  resources :public_keys
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -5,6 +5,11 @@
 
 $gray-medium-light: #eaeaea;
 
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
 /* universal */
 
 body {
@@ -95,4 +100,57 @@ footer {
       margin-left: 15px;
     }
   }
+}
+
+/* forms */
+
+textarea {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+
+/* public Keys */
+
+.public_keys{
+
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+
+  .key {
+    display: block;
+    margin-left: 60px;
+  }
+
+  aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
 }
