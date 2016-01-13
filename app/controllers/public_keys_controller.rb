@@ -14,7 +14,6 @@ class PublicKeysController < ApplicationController
     def create
       @public_key = current_user.public_keys.build(public_key_params)
       if @public_key.save
-        # TODO @public_key.activate
         flash = "New Public Key created"
         redirect_to "/public_keys"
       else

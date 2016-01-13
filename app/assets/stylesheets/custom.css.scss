@@ -10,6 +10,17 @@ $gray-medium-light: #eaeaea;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
+
+@mixin word-wrap() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
 /* universal */
 
 body {
@@ -105,6 +116,7 @@ footer {
 /* forms */
 
 textarea {
+  height: 200px;
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
@@ -142,15 +154,10 @@ input {
     border-top: 1px solid #e8e8e8;
   }
 
+
   .key {
     display: block;
     margin-left: 60px;
+    @include word-wrap();
   }
-
-  aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
-  }
-}
 }

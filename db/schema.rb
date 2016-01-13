@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112085344) do
+ActiveRecord::Schema.define(version: 20160113075914) do
 
   create_table "public_keys", force: :cascade do |t|
-    t.string   "key"
+    t.text     "key"
     t.integer  "user_id"
     t.boolean  "active?"
     t.datetime "created_at", null: false
