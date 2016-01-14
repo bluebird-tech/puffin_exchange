@@ -22,7 +22,8 @@ class TwoFactorAuthentificationController < ApplicationController
   def create
     permitted_params = params.require(:user).permit :password, :otp_attempt
     if current_user.activate_two_factor permitted_params
-      redirect_to root_path, notice: "You have enabled Two Factor Authentication"
+      flash[:success] = "You have enabled Two Factor Authentication"
+      redirect_to root_path
     else
       render 'new'
     end
@@ -32,7 +33,8 @@ class TwoFactorAuthentificationController < ApplicationController
   def destroy
     permitted_params = params.require(:user).permit :password
     if current_user.deactivate_two_factor permitted_params
-      redirect_to root_path, notice: "You have disabled Two Factor Authentication"
+      flash[:warning] = "You have disabled Two Factor Authentication"
+      redirect_to root_path
     else
       render 'show'
     end

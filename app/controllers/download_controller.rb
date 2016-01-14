@@ -13,7 +13,7 @@ class DownloadController < ApplicationController
 
   def enable_2fa
     unless current_user.otp_required_for_login?
-      flash[:notice] = "You need to enable Two Factor Authentication to continue."
+      flash[:warning] = "You need to enable Two Factor Authentication to continue."
       redirect_to two_factor_path
     end
   end
