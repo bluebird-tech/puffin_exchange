@@ -9,6 +9,7 @@ web:
     - $SSH_AUTH_SOCK:/tmp/agent.sock
   environment:
     - SSH_AUTH_SOCK=/tmp/agent.sock
+    - TWO_FACTOR_KEY=puffin2016
   ports:
     - "3000:3000"
   links:

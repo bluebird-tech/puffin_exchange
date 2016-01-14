@@ -14,6 +14,11 @@
         <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
       </div>
 
+      <div class="field">
+        <%= f.label "One Time Password" %><i> (only if Two Factor Authentication is enabled)</i><br />
+        <%= f.text_field :otp_attempt, autocomplete: "off", class: 'form-control' %>
+      </div>
+
       <% if devise_mapping.rememberable? -%>
         <div class="field">
           <%= f.check_box :remember_me %>

@@ -13,11 +13,15 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'download#index'
 
   get '/contact', to: 'landing_pages#contact'
   get '/help', to: 'landing_pages#help'
   get '/about', to: 'landing_pages#about'
+
+  get    '/two_factor_authentification', to: 'two_factor_authentification#show', as: 'two_factor'
+  post   '/two_factor_authentification', to: 'two_factor_authentification#create'
+  delete '/two_factor_authentification', to: 'two_factor_authentification#destroy'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

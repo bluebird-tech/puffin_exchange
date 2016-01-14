@@ -1,0 +1,30 @@
+<% provide(:title, "Enable Two Factor Authentication") %>
+<h1>Enable Two Factor Authentication</h1>
+
+<p>To enable <em>Two Factor Authentication</em>, you need a <em>Time-based One-Time Password</em> (TOTP) application, such as <em>Google Authenticator</em>.<br>
+Then scan the following QR Code:</p>
+
+<p class="text-center"><%= image_tag @qr %></p>
+
+<p>Then, verify that the pairing was successful by entering your password and a code below.</p><br />
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for current_user, url: [:two_factor], method: 'POST' do |f| %>
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= f.label "One Time Password" %><br />
+        <%= f.text_field :otp_attempt, autocomplete: "off", class: 'form-control' %><br />
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Enable", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
