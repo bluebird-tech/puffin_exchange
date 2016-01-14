@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
           :otp_secret_encryption_key => ENV['TWO_FACTOR_KEY']
 
   has_many :public_keys, dependent: :destroy
+  has_many :affiliations
+  has_many :studies, through: :affiliations
 
   def activate_two_factor params
     otp_params = { otp_secret: unconfirmed_otp_secret }
