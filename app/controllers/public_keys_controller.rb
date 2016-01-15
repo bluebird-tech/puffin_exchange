@@ -14,6 +14,8 @@ class PublicKeysController < ApplicationController
     def create
       @public_key = current_user.public_keys.build(public_key_params)
       if @public_key.save
+        # only the last public key is the active one
+        @public_key.activate
         flash[:success] = "New Public Key created"
         redirect_to "/public_keys"
       else

@@ -5,9 +5,9 @@ class PublicKey < ActiveRecord::Base
   validates :key, presence: true
 
   def activate
-    self.update(active?: true)
-    PublicKey.where("user_id = ? AND id != ? AND active?",
-                      self.user_id, self.id, true).update_all(active?: false)
+    self.update(active: true)
+    PublicKey.where("user_id = ? AND id != ? AND active = ?",
+                      self.user_id, self.id, true).update_all(active: false)
   end
 
 end

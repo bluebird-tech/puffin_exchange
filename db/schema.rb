@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115091906) do
+ActiveRecord::Schema.define(version: 20160115145148) do
 
   create_table "affiliations", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20160115091906) do
   create_table "public_keys", force: :cascade do |t|
     t.text     "key"
     t.integer  "user_id"
-    t.boolean  "active?"
+    t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
