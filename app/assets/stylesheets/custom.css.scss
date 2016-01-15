@@ -21,6 +21,7 @@ $gray-medium-light: #eaeaea;
   -webkit-hyphens: auto;
   hyphens: auto;
 }
+
 /* universal */
 
 body {
@@ -157,7 +158,30 @@ input {
 
   .key {
     display: block;
-    margin-left: 60px;
+    @include word-wrap();
+  }
+}
+
+
+/* Studies */
+
+.studies{
+
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+
+  .title {
+    display: inline;
+    font-weight: bold;
+  }
+
+
+  .description {
+    display: block;
     @include word-wrap();
   }
 }

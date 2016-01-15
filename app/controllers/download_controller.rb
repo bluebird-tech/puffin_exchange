@@ -2,6 +2,7 @@ class DownloadController < ApplicationController
   before_filter :authenticate_and_enable_2fa
 
   def index
+    @studies = current_user.studies
   end
 
   private
