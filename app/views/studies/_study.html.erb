@@ -1,0 +1,7 @@
+<li id="study-<%= study.id %>">
+  <span class="title"><%= study.title %></span>
+  <span class="description"><%= study.description %></span><br />
+  <span class="timestamp">
+    <%= link_to "Download", "#", data: { confirm: "Download Data of #{study.title}?" } %>
+  </span><br />
+</li>

@@ -1,0 +1,16 @@
+<% provide(:title, "New Public Key") %>
+<h1>New Public Key</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <section class="public_key_form">
+      <%= form_for(@public_key) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <div class="field">
+          <%= f.text_area :key, placeholder: "Paste new public key..." %>
+        </div>
+        <%= f.submit "Add", class: "btn btn-primary" %>
+      <% end %>
+    </section>
+  </div>
+</div>

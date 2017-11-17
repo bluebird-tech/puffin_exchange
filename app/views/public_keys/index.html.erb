@@ -1,0 +1,13 @@
+<% provide(:title, "Public Keys") %>
+<h1>Public Keys</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= link_to "Add a Public Key", new_public_key_path %><br />
+    <% if @public_keys.any? %>
+      <ul class="public_keys">
+        <%= render @public_keys %>
+      </ul>
+    <% end %>
+  </div>
+</div>

@@ -11,21 +11,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160106103559) do
+ActiveRecord::Schema.define(version: 20160115145148) do
+
+  create_table "affiliations", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "study_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "affiliations", ["study_id"], name: "index_affiliations_on_study_id"
+  add_index "affiliations", ["user_id", "study_id"], name: "index_affiliations_on_user_id_and_study_id", unique: true
+  add_index "affiliations", ["user_id"], name: "index_affiliations_on_user_id"
+
+  create_table "public_keys", force: :cascade do |t|
+    t.text     "key"
+    t.integer  "user_id"
+    t.boolean  "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "public_keys", ["user_id"], name: "index_public_keys_on_user_id"
+
+  create_table "studies", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                     default: "", null: false
+    t.string   "encrypted_password",        default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",             default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.integer  "failed_attempts",           default: 0
+    t.string   "unlock_token"
+    t.date     "locked_at"
+    t.string   "encrypted_otp_secret"
+    t.string   "encrypted_otp_secret_iv"
+    t.string   "encrypted_otp_secret_salt"
+    t.integer  "consumed_timestep"
+    t.boolean  "otp_required_for_login"
+    t.string   "unconfirmed_otp_secret"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -1,0 +1,19 @@
+<% provide(:title, "Disable Two Factor Authentication") %>
+<h1>Disable Two Factor Authentication</h1>
+
+<p>Type your password to disable <em>Two Factor Authentication</em></p>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<%= form_for current_user, url: [:two_factor], method: 'DELETE' do |f| %>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off", class: 'form-control' %><br />
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Disable", class: "btn btn-primary" %>
+  </div>
+<% end %>
+  </div>
+</div>
